@@ -1,0 +1,460 @@
+/* ===============================
+   RESET + BASE
+   =============================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #03345b;
+  --card: #02283f;
+  --accent: #ff4d4d;
+  --muted: #dfe6f0;
+  --glass: rgba(255, 255, 255, 0.04);
+  --radius: 14px;
+  --max-width: 1100px;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--bg);
+  color: white;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 60px;
+}
+
+/* ===============================
+   NAVIGATION
+   =============================== */
+.navigation {
+  width: 100%;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  padding: 14px 10px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.25), transparent);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navigation a {
+  color: var(--muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 6px 10px;
+}
+
+.navigation a:hover {
+  color: white;
+}
+
+/* ===============================
+   SECTIONS GENERAL LAYOUT
+   =============================== */
+section {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 28px auto;
+  padding: 26px;
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* ===============================
+   HERO LAYOUT
+   =============================== */
+.hero {
+  padding: 40px 20px;
+}
+
+.hero-inner {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 30px;
+  border-radius: 18px;
+  position: relative;
+}
+
+.hero-left {
+  flex: 1;
+  min-width: 260px;
+}
+
+.hero-right {
+  width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Abstract shape behind profile */
+.abstract-shape {
+  position: absolute;
+  right: 40px;
+  top: -10px;
+  width: 260px;
+  height: 220px;
+  background: linear-gradient(135deg, rgba(255, 77, 77, 0.12), rgba(255, 77, 77, 0.22));
+  border-radius: 36% 64% 62% 38% / 40% 40% 60% 60%;
+  transform: rotate(-10deg);
+  filter: blur(6px);
+  z-index: 1;
+}
+
+/* Profile circle */
+.profile-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 6px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.00));
+  z-index: 2;
+}
+
+.profile-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Small profile circle for About section */
+.profile-circle.small {
+  width: 160px;
+  height: 160px;
+  border: 3px solid white;
+  margin-right: 18px;
+}
+
+/* Hero text */
+.greeting {
+  color: var(--muted);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.hero-name {
+  font-size: 46px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.hero-sub {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: white;
+  opacity: 0.95;
+}
+
+.hero-role {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+/* ===============================
+   BUTTONS
+   =============================== */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 6px 18px rgba(255, 77, 77, 0.18);
+}
+
+.btn.outline {
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+  background: transparent;
+}
+
+/* ===============================
+   SKILLS & SOCIALS
+   =============================== */
+.hero-skills-row {
+  margin-top: 18px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.skill-pill {
+  background: var(--glass);
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.social-row {
+  margin-top: 12px;
+  display: flex;
+  gap: 16px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.social-row a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.social-row a:hover {
+  color: white;
+}
+
+/* ===============================
+   SECTION HEADINGS
+   =============================== */
+.about h2,
+.skills h2,
+.soft-skills h2,
+.mockups h2,
+.business-cards h2,
+.contact h2 {
+  background: var(--accent);
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  color: white;
+  font-weight: 700;
+}
+
+/* ===============================
+   ABOUT SECTION
+   =============================== */
+.about-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  max-width: 600px;
+  line-height: 1.6;
+  color: #e6eef8;
+}
+
+/* ===============================
+   SKILLS GRID
+   =============================== */
+.skills-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  min-height: 110px;
+}
+
+.skill-card h3 {
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+/* Soft skills grid */
+.soft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.soft-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+/* ===============================
+   PHOTO / MOCKUP / BUSINESS GRID
+   =============================== */
+.photos, .photo-grid,
+.about-content, .photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  align-items: center;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 12px;
+  height: auto;
+  object-fit: auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Mockups */
+.mockup-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.mockup-card {
+  background: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  width: calc(33% - 12px);
+  min-width: 160px;
+}
+
+.mockup-card img {
+  width: 100%;
+  display: block;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Business cards */
+.cards-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.cards-row img {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ===============================
+   CONTACT SECTION
+   =============================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.contact-card {
+  background: var(--card);
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.contact-card a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-form {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+  color: white;
+}
+
+.contact-form textarea {
+  grid-column: 1 / -1;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form .btn {
+  grid-column: 1 / -1;
+  width: 180px;
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+footer {
+  text-align: center;
+  padding: 18px;
+  background: var(--card);
+  margin-top: 28px;
+  border-radius: 12px;
+  color: var(--muted);
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+@media (max-width: 900px) {
+  .hero-inner {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    padding: 22px;
+  }
+
+  .hero-right {
+    margin-bottom: 8px;
+  }
+
+  .abstract-shape {
+    right: 10%;
+    width: 200px;
+    height: 180px;
+    top: -20px;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-name {
+    font-size: 34px;
+  }
+
+  .profile-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .mockup-card {
+    width: 100%;
+  }
+}
